@@ -1,0 +1,19 @@
+
+
+
+.back-icon {
+cursor:pointer;
+padding-top: 1rem;
+padding-left: 1rem;
+
+  :hover {
+    fill: #9CDCCC;
+  }
+}
+.boxContainerStyles {
+    display: 'flex';
+    justify-content: 'center';
+    align-items: 'center';
+    margin-top: 20;
+    padding: 20;
+  }
