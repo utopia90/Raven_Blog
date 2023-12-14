@@ -1,6 +1,6 @@
 # The Ravenpack Blog
 
-The Ravenpack Blog is a React app project built with TypeScript and MUI library.
+The Ravenpack Blog is a React app project built with TypeScript and MUI library. It provides a seamless experience for viewing and interacting with blog posts from the well-known API 'https://jsonplaceholder.typicode.com/'. Users can explore all the available posts, filter posts by user, and view specific blog posts with ease.
 
 ## Installation
 
