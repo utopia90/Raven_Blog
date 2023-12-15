@@ -6,6 +6,8 @@ import './PostDetail.styles.css'
 import { useNavigate } from "react-router-dom";
 import { ReactComponent as BackIcon } from '../../assets/icons/BackIcon.svg'
 import { usePhotosByPostId } from "../../hooks/usePhotos";
+import { useComments } from "../../hooks/useComments";
+import CommentsCard from "../../components/CommentsCard/CommentsCard";
 
 
 const PostDetail = () => {
@@ -15,9 +17,10 @@ const PostDetail = () => {
   const { post, loadingPostsByPostId } = useGetPostByPostId(postId)
   const { userName, loadingUserName } = useGetUserNameById(Number(post?.userId))
   const { photo } = usePhotosByPostId(postId - 1)
+  const { loading: loadingComments, error: errorComments, comments } = useComments(String(postId))
 
 
-
+  console.log(comments)
   const navigate = useNavigate();
 
   const paperStyles = {
@@ -50,7 +53,16 @@ const PostDetail = () => {
               <Typography variant="body1">{post?.body}</Typography>
             </Paper>
           </Box>}
+        <Container className="comments-section">
+          <Typography variant="h6">Comments:</Typography>
+          {errorComments && 'There was an error loading comments..'}
+          {loadingComments ? 'Loading comments..' :
+            comments?.map((comment) =>
+              <CommentsCard name={comment?.name} email={comment?.email} body={comment?.body} />
+            )}
+        </Container>
       </Container>
+
     </>
   )
 }

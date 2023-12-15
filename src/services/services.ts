@@ -1,7 +1,5 @@
 import axios from "axios";
 
-
-
 const API_BASE_URL = 'https://jsonplaceholder.typicode.com/'
 const API_IMG_URL = 'https://picsum.photos/v2/list'
 
@@ -49,6 +47,13 @@ export interface Photo {
   download_url:string,
 }
 
+export interface Comment {
+  postId: number,
+  id: number,
+  name: string,
+  email: string,
+  body: string
+}
   
  const getAllPosts = async (): Promise<unknown> => {
     try {
@@ -78,5 +83,14 @@ const getAllPhotos = async (): Promise<unknown> => {
       if (error instanceof Error) return `There was an error: ${error.message}`
   }
 }
+const getCommentsByPostId = async (postId: string): Promise<unknown> => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/comments?postId=${postId}`);
+    const data: Comment[] = await response.data
+    return data
+  } catch (error) {
+      if (error instanceof Error) return `There was an error: ${error.message}`
+  }
+}
   
-export  {getAllPosts, getAllUsers, getAllPhotos};
+export  {getAllPosts, getAllUsers, getAllPhotos, getCommentsByPostId};
