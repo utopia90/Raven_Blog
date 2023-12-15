@@ -100,7 +100,7 @@ export default function HomePage() {
   const shoudShowGalleryArrows = !maxPostsReached && filteredPosts.length === 0
   const isFirstPage = minPosts === 1
   return (
-    <Container maxWidth="xl">
+    <Container maxWidth="xl" className="main-container">
       <Box className="top-title-container"> <Typography variant="h5">The RavenPack <span className="blog-enphasis">Blog</span></Typography></Box>
       {shoudShowGalleryArrows && <Box className="gallery-arrow">{!isFirstPage && <Box onClick={e => handleGalleryArrowClick(e, TypeMovement.LEFT)} className="arrow-left-container"><ArrowLeft /></Box>}  <Box onClick={e => handleGalleryArrowClick(e, TypeMovement.RIGHT)} ><ArrowRight className="arrow-right-container" /></Box> </Box>}
       <Container maxWidth="lg" >
