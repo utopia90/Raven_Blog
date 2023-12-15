@@ -58,7 +58,7 @@ const PostDetail = () => {
           {errorComments && 'There was an error loading comments..'}
           {loadingComments ? 'Loading comments..' :
             comments?.map((comment) =>
-              <CommentsCard name={comment?.name} email={comment?.email} body={comment?.body} />
+              <CommentsCard key={comment.postId} name={comment?.name} email={comment?.email} body={comment?.body} />
             )}
         </Container>
       </Container>
