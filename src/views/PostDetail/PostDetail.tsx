@@ -19,8 +19,6 @@ const PostDetail = () => {
   const { photo } = usePhotosByPostId(postId - 1)
   const { loading: loadingComments, error: errorComments, comments } = useComments(String(postId))
 
-
-  console.log(comments)
   const navigate = useNavigate();
 
   const paperStyles = {
